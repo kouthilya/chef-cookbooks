@@ -9,12 +9,13 @@
 #How to call another recipe from default.rb
 
 include_recipe '::log'
+include_recipe '::group'
 include_recipe 'dbserver'
 
 package 'httpd'
 
 file '/var/www/html/index.html' do
-  content "Welcome to Chef Class chanakya "
+  content "Welcome to Chef Class - cookbooks"
 end
 
 service 'httpd' do
@@ -28,4 +29,5 @@ end
 template '/var/www/html/index.html' do
   source 'index.html.erb'
 end
+
 
